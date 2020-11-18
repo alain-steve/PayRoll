@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using PayRoll.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
