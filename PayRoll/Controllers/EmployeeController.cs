@@ -15,13 +15,11 @@ namespace PayRoll.Controllers
     public class EmployeeController : Controller
     {
         private readonly IEmployeeService _employeeService;
-        private readonly HostingEnvironment _hostingEnvironment;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public EmployeeController(IEmployeeService employeeService, HostingEnvironment hostingEnvironment, IWebHostEnvironment webHostEnvironment)
+        public EmployeeController(IEmployeeService employeeService, IWebHostEnvironment webHostEnvironment)
         {
             _employeeService = employeeService;
-            _hostingEnvironment = hostingEnvironment;
             _webHostEnvironment = webHostEnvironment;
         }
         public IActionResult Index()

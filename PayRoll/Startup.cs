@@ -12,6 +12,8 @@ using PayRoll.Persistance;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PayRoll.Services;
+using PayRoll.Services.Implementation;
 
 namespace PayRoll
 {
@@ -32,6 +34,7 @@ namespace PayRoll
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
