@@ -12,15 +12,15 @@ namespace PayRoll.Models
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Employee Number Is Required"),
-            RegularExpression(@"`[A-Z]{3,3}[0-9]{3}$")]
+            /*RegularExpression(@"`[A-Z]{3,3}[0-9]{3}$")*/]
         public string EmployeeNo { get; set; }
         [Required(ErrorMessage = "First Name Is Required"), StringLength(50, MinimumLength = 2)]
-        [RegularExpression(@"`[A-Z][a-zA-Z""'\s-]*$"), Display(Name = "First Name")]
+        [/*RegularExpression(@"`[A-Z][a-zA-Z""'\s-]*$"),*/ Display(Name = "First Name")]
         public string FirstName { get; set; }
         [StringLength(50), Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
         [Required(ErrorMessage = "Last Name Is Required"), StringLength(50, MinimumLength = 2)]
-        [RegularExpression(@"`[A-Z][a-zA-Z""'\s-]*$"), Display(Name = "Last Name")]
+        [/*RegularExpression(@"`[A-Z][a-zA-Z""'\s-]*$"),*/ Display(Name = "Last Name")]
         public string LastName { get; set; }
         public string Gender { get; set; }
         [Display(Name = "Photo")]
@@ -35,7 +35,7 @@ namespace PayRoll.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required, StringLength(50), Display(Name = "National Insurance Number")]
-        [RegularExpression(@"`[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D\s]$")]
+        //[RegularExpression(@"`[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D\s]$")]
         public string NationalInsuranceNo { get; set; }
         [Display(Name = "Payment Method")]
         public PaymentMethod PaymentMethod { get; set; }
