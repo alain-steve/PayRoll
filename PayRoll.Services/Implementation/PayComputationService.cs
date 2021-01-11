@@ -52,6 +52,8 @@ namespace PayRoll.Services.Implementation
 
         public PaymentRecord GetById(int id) => _context.PaymentRecords.Where(pay => pay.Id == id).FirstOrDefault();
 
+        public TaxYear GetTaxYearById(int id) => _context.TaxYears.Where(year => year.Id == id).FirstOrDefault();
+
         public decimal NetPay(decimal totalEarnings, decimal totalDeduction) => totalEarnings - totalDeduction;
 
         public decimal OvertimeEarnings(decimal overtimeRate, decimal overtimeHours) => overtimeHours * overtimeRate;
