@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using PayRoll.Entity;
 using PayRoll.Models;
 using PayRoll.Services;
+using RotativaCore;
 
 namespace PayRoll.Controllers
 {
@@ -171,6 +172,17 @@ namespace PayRoll.Controllers
                 NetPayment = paymentRecord.NetPayment,
             };
             return View(model);
+        }
+
+        public IActionResult GeneratePayslipPdf(int id)
+        {
+            var slipTitle = _payComputationService.GetById(id);
+            var payslip = new ActionAsPdf("Payslip", new { id = id})
+            {
+                //FileName = "payslip.pdf"
+                FileName = slipTitle.FullName + " payslip.pdf"
+            };
+            return payslip;
         }
     }
 }
