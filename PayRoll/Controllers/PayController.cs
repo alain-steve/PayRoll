@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PayRoll.Entity;
 using PayRoll.Models;
@@ -10,6 +11,7 @@ using RotativaCore;
 
 namespace PayRoll.Controllers
 {
+    [Authorize(Roles = "Admin, Manager")]
     public class PayController : Controller
     {
         private readonly IPayComputationService _payComputationService;
@@ -52,7 +54,7 @@ namespace PayRoll.Controllers
             });
             return View(payRecords);
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewBag.employees = _employeeService.GetAllEmployeesForPayroll();
@@ -62,6 +64,7 @@ namespace PayRoll.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(PaymentRecordCreateViewModel model)
         {
             if (ModelState.IsValid)
@@ -136,6 +139,7 @@ namespace PayRoll.Controllers
             return View(model);
         }
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Payslip(int id)
         {
             var paymentRecord = _payComputationService.GetById(id);
