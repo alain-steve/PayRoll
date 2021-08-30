@@ -11,7 +11,7 @@ using RotativaCore;
 
 namespace PayRoll.Controllers
 {
-    [Authorize(Roles = "Admin, Manager")]
+    [Authorize/*(Roles = "Admin, Manager")*/]
     public class PayController : Controller
     {
         private readonly IPayComputationService _payComputationService;
@@ -54,7 +54,7 @@ namespace PayRoll.Controllers
             });
             return View(payRecords);
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize/*(Roles = "Admin")*/]
         public IActionResult Create()
         {
             ViewBag.employees = _employeeService.GetAllEmployeesForPayroll();
@@ -64,7 +64,7 @@ namespace PayRoll.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize/*(Roles = "Admin")*/]
         public async Task<IActionResult> Create(PaymentRecordCreateViewModel model)
         {
             if (ModelState.IsValid)

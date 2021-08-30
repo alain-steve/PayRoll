@@ -13,11 +13,13 @@
             <div class="card-body">
                 <div class="container-fluid d-flex justify-content-between">
                     <div class="col-md-3 pl-0">
-                        <p class="mt-5 mb-2"><b>Creative Geeks Africa</b></p>
-                        <p>KG 178 St<br />Remera<br />Kigali</p>
+                        <img src="~/images/yunnan logo.jpg" alt="logo" style="height:100px; width:120px" />
+                        <p class="mt-2 mb-1"><b>YUNNAN UNIVERSITY</b></p>
+                        <p> Address: <i>Kunming, Yunnan, China</i> <br /> Phone: <i>+86 871 6503 0908</i></p>
                     </div>
                     <div class="col-md-3 pr-0">
-                        <p class="mt-5 mb-2 text-right"><b>Pay Date : @Model.PayDate.ToString("dd/MM/yyyy")</b></p>
+                        <p class="mt-5 mb-2 text-right"><b><i>University Employee Payslip</i></b></p>
+                        <p class="mb-2 text-right"><b>Pay Date : @Model.PayDate.ToString("dd/MM/yyyy")</b></p>
                         <p class="text-right">Tax Code : @Model.TaxCode<br />Year : @Model.Year<br /></p>
                     </div>
                 </div><br /><br />
@@ -88,7 +90,7 @@
                                 <td></td>
                                 <td></td>
                                 <td class="table-dark"><b>NET PAY : </b></td>
-                                <td class="table-dark">@Model.NetPayment.ToString("c")</td>
+                                <td class="table-dark">¥ @Model.NetPayment.ToString("")</td>
                             </tr>
                         </tfoot>
                     </table>
