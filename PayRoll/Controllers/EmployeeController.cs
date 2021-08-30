@@ -30,6 +30,7 @@ namespace PayRoll.Controllers
                 { 
                     Id = employee.Id,
                     EmployeeNo = employee.EmployeeNo,
+                    FullName = employee.FullName,
                     ImageUrl = employee.ImageUrl,
                     Gender = employee.Gender,
                     Designation = employee.Designation,
